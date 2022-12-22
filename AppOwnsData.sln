@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppOwnsData", "AppOwnsData\AppOwnsData.csproj", "{272D6B69-0644-477B-AAB8-51C71E54E208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOD48", "AOD48\AOD48.csproj", "{8768AB0C-BA0B-4160-883F-E4306DEA8FF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{272D6B69-0644-477B-AAB8-51C71E54E208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272D6B69-0644-477B-AAB8-51C71E54E208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272D6B69-0644-477B-AAB8-51C71E54E208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8768AB0C-BA0B-4160-883F-E4306DEA8FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8768AB0C-BA0B-4160-883F-E4306DEA8FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8768AB0C-BA0B-4160-883F-E4306DEA8FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8768AB0C-BA0B-4160-883F-E4306DEA8FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
