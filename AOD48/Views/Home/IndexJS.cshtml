@@ -29,16 +29,16 @@
             |    3. Select a report or use an embed token.                                       |
             +-----------------------------------------------------------------------------------*/
             // Read embed application token
-            let accessToken = EMBED_ACCESS_TOKEN;
+            let accessToken = "@Model.EmbedToken.Token";;
 
             // Read embed URL
-            let embedUrl = EMBED_URL;
+            let embedUrl = "@Html.Raw(Model.EmbedReports[0].EmbedUrl)";
 
             // Read report Id
-            let embedReportId = REPORT_ID;
+            let embedReportId = "@Model.EmbedReports[0].ReportId";
 
             // Read embed type from radio
-            let tokenType = TOKEN_TYPE;
+            //let tokenType = TOKEN_TYPE;
 
             // We give All permissions to demonstrate switching between View and Edit mode and saving report.
             let permissions = models.Permissions.All;
@@ -47,7 +47,7 @@
             // For more information see https://go.microsoft.com/fwlink/?linkid=2153590
             let config = {
                 type: 'report',
-                tokenType: tokenType == '0' ? models.TokenType.Aad : models.TokenType.Embed,
+                tokenType: models.TokenType.Embed,//tokenType == '0' ? models.TokenType.Aad : models.TokenType.Embed,
                 accessToken: accessToken,
                 embedUrl: embedUrl,
                 id: embedReportId,
