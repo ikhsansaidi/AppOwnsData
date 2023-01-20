@@ -29,9 +29,10 @@ namespace AOD48.Controllers
 
             return View();
         }
-        public ActionResult IndexJS()
-        {  
-            return View();
+        public async Task<ActionResult> IndexJS()
+        {
+            var embedResult = await EmbedService.GetEmbedParams(ConfigValidatorService.WorkspaceId, ConfigValidatorService.ReportId);
+            return View(embedResult);
         } 
 
         public async Task<ActionResult> EmbedReport()
