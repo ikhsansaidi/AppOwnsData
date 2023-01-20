@@ -10,30 +10,39 @@ using System.Configuration;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
-
+ 
 
 namespace AOD48.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            //var result = new IndexConfig();
+            //var assembly = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(n => n.Name.Equals("Microsoft.PowerBI.Api")).FirstOrDefault();
+            //if (assembly != null)
+            //{
+            //    result.DotNetSDK = assembly.Version.ToString(3);
+            //}
+            //return View(result);
 
             return View();
         }
+
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+
+        //    return View();
+        //}
+
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
         public async Task<ActionResult> EmbedReport()
         {
             try
@@ -51,5 +60,6 @@ namespace AOD48.Controllers
                 return View("Error", ex);
             }
         }
+         
     }
 }

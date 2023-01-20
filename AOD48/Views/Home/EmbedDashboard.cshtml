@@ -5,45 +5,46 @@ Licensed under the MIT license.
 ----------------------------------------------------------------------------
 *@
 
-@model AOD48.Models.ReportEmbedConfig
+@model AOD48.Models.DashboardEmbedConfig
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Embedded Report  xx</h2>
+<h2>Embedded Dashboard</h2>
 <div>
-    The following report is the first report found in the given group, or the reportId defined in Web.config. Feel free to change the code to match your needs.<br /><br />
+    The following dashboard is the first dashboard found in the given group. Please feel free to change the code to match your needs1.
 </div>
-<div id="embedContainer"></div>
+
+<div id="dashboardContainer"></div>
 
 <div class="infoBox">
     Code is in files:<br />
     1) HomeController.cs<br />
     2) EmbedService.cs<br />
-    3) EmbedReport.cshtml
+    3) EmbedDashboard.cshtml
 </div>
 
- 
+@Html.Partial("AdditionalLinks")
+
 <script>
 
-    // Get a reference to the embedded report HTML element
-    const reportContainer = $('#embedContainer')[0];
+    // Get a reference to the embedded dashboard HTML element
+    const dashboardContainer = $('#dashboardContainer')[0];
 
     // Read embed application token from Model
     const accessToken = "@Model.EmbedToken.Token";
 
-    // You can embed different reports as per your need by changing the index
     // Read embed URL from Model
-    const embedUrl = "@Html.Raw(Model.EmbedReports[0].EmbedUrl)";
+    const embedUrl = "@Html.Raw(Model.EmbedUrl)";
 
-    // Read report Id from Model
-    const embedReportId = "@Model.EmbedReports[0].ReportId";
+    // Read dashboard Id from Model
+    const embedDashboardId = "@Model.DashboardId";
 
     // Use the token expiry to regenerate Embed token for seamless end user experience
     // Refer https://aka.ms/RefreshEmbedToken
-
+    const tokenExpiry = "@Model.EmbedToken.Expiration";
 
     // Get models. models contains enums that can be used.
     const models = window['powerbi-client'].models;
@@ -53,23 +54,13 @@ Licensed under the MIT license.
     // This also includes settings and options such as filters.
     // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
     const config = {
-        type: 'report',
+        type: 'dashboard',
         tokenType: models.TokenType.Embed,
         accessToken: accessToken,
         embedUrl: embedUrl,
-        id: embedReportId,
-        permissions: models.Permissions.All,
-        settings: {
-            // Enable this setting to remove gray shoulders from embedded report
-            // background: models.BackgroundType.Transparent,
-            filterPaneEnabled: true,
-            navContentPaneEnabled: true
-        }
+        id: embedDashboardId
     };
-    console.log(config);
-    console.log(reportContainer);
 
-    const tokenExpiry = "@Model.EmbedToken.Expiration";
-    // Embed the report and display it within the div container.
-    const report = powerbi.embed(reportContainer, config);
+    // Embed the dashboard and display it within the div container.
+    const dashboard = powerbi.embed(dashboardContainer, config);
 </script>
